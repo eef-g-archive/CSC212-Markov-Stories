@@ -7,26 +7,25 @@ namespace Program
     {
         static public void Main(string[] args)
         {
-            string txt = "Hellothere,It'sEthanhereabouttobringtotheWorldmynewprogram.It'scalledEthan'scode!";
-            int len = 2;
-            string [] keys = new string [txt.Length / len];
-            
-            int j = 0;
-            for (int i = 0; i < txt.Length; i+=len)
-            {
-                keys[j] = txt.Substring(i, i + len);
-                Console.WriteLine(keys[j]);
-                j++;
-            }
-            MarkovEntry[] entries = new MarkovEntry[keys.Length];
+            string txt = "Hello there, It's Ethan here about to bring to the World my new program. It's called Ethan's code!";
+            int len = 5;
+            List<string> keys = new List<string>();
 
-            for(int i = 0; i < keys.Length; i ++)
+            for (int i = 0; i < txt.Length - len; i++)
             {
-                Console.WriteLine($"#== Testing MarkovEntry {i} ==#");
-                entries[i] = new MarkovEntry(keys[i]);
-                entries[i].ScanText(txt);
-                Console.WriteLine("\n" + entries[i] + "\n");
-                entries[i].PrintDistinctKeys();
+                string newKey = txt.Substring(i, len);
+                keys.Add(newKey);
+            }
+
+            List<MarkovEntry> entries = new List<MarkovEntry>();
+            foreach(string key in keys)
+            {
+                Console.WriteLine($"#== Testing MarkovEntry ==#");
+                MarkovEntry entry = new MarkovEntry(key);
+                entries.Add(entry);
+                entry.ScanText(txt);
+                Console.WriteLine("\n" + entry + "\n");
+                entry.PrintDistinctKeys();
             }
         }
     }

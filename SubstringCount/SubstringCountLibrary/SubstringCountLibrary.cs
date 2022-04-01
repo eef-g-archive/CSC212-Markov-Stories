@@ -76,7 +76,6 @@
             {
                 distinctKeys.Add(ch.ToString(), 1);
             }
-            Console.WriteLine($"Character after key '{key}': '{ch}'");
             count++;
         }
 
