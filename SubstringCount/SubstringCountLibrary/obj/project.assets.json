@@ -8,24 +8,31 @@
     "net6.0": []
   },
   "packageFolders": {
-    "/Users/maggiebrascia/.nuget/packages/": {}
+    "C:\\Users\\Ethan\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/maggiebrascia/Desktop/CSC212-Markov-Stories/SubstringCount/SubstringCountLibrary/SubstringCountLibrary.csproj",
+      "projectUniqueName": "C:\\Users\\Ethan\\Documents\\GitHub\\CSC212-Markov-Stories\\SubstringCount\\SubstringCountLibrary\\SubstringCountLibrary.csproj",
       "projectName": "SubstringCountLibrary",
-      "projectPath": "/Users/maggiebrascia/Desktop/CSC212-Markov-Stories/SubstringCount/SubstringCountLibrary/SubstringCountLibrary.csproj",
-      "packagesPath": "/Users/maggiebrascia/.nuget/packages/",
-      "outputPath": "/Users/maggiebrascia/Desktop/CSC212-Markov-Stories/SubstringCount/SubstringCountLibrary/obj/",
+      "projectPath": "C:\\Users\\Ethan\\Documents\\GitHub\\CSC212-Markov-Stories\\SubstringCount\\SubstringCountLibrary\\SubstringCountLibrary.csproj",
+      "packagesPath": "C:\\Users\\Ethan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Ethan\\Documents\\GitHub\\CSC212-Markov-Stories\\SubstringCount\\SubstringCountLibrary\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/maggiebrascia/.config/NuGet/NuGet.Config"
+        "C:\\Users\\Ethan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -58,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.103/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

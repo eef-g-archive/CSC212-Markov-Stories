@@ -29,10 +29,15 @@ namespace Program
 
             string filename = args[0];
             string text = null;
-
+            string[] textArr;
             try
             {
-                text = File.ReadAllText(filename);
+                textArr = File.ReadAllLines(filename);
+                foreach(string line in textArr)
+                {
+                    text += line + " ";
+                }
+                Console.WriteLine(text);
             }
             catch (FileNotFoundException e)
             {
@@ -59,8 +64,16 @@ namespace Program
                 MarkovEntry entry = new MarkovEntry(key);
                 entries.Add(entry);
                 entry.ScanText(text);
+                // Commenting these two lines out for now so that way we can have our output look exactly like Tallman's
+                /*
                 Console.WriteLine("\n" + entry + "\n");
                 entry.PrintDistinctKeys();
+                */
+            }
+            Console.WriteLine($"{entries.Count} distinct keys");
+            foreach(MarkovEntry entry in entries)
+            {
+                Console.WriteLine(entry.ToString());
             }
         }
     }
