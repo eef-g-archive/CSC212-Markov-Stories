@@ -18,3 +18,15 @@ C:\Users\Ethan\Documents\GitHub\CSC212-Markov-Stories\SubstringCount\SubstringCo
 C:\Users\Ethan\Documents\GitHub\CSC212-Markov-Stories\SubstringCount\SubstringCountLibrary\obj\Debug\net6.0\refint\SubstringCountLibrary.dll
 C:\Users\Ethan\Documents\GitHub\CSC212-Markov-Stories\SubstringCount\SubstringCountLibrary\obj\Debug\net6.0\SubstringCountLibrary.pdb
 C:\Users\Ethan\Documents\GitHub\CSC212-Markov-Stories\SubstringCount\SubstringCountLibrary\obj\Debug\net6.0\ref\SubstringCountLibrary.dll
+C:\Users\etan3\OneDrive\Documents\CSC212-Markov-Stories\SubstringCount\SubstringCountLibrary\bin\Debug\net6.0\SubstringCountLibrary.deps.json
+C:\Users\etan3\OneDrive\Documents\CSC212-Markov-Stories\SubstringCount\SubstringCountLibrary\bin\Debug\net6.0\SubstringCountLibrary.dll
+C:\Users\etan3\OneDrive\Documents\CSC212-Markov-Stories\SubstringCount\SubstringCountLibrary\bin\Debug\net6.0\SubstringCountLibrary.pdb
+C:\Users\etan3\OneDrive\Documents\CSC212-Markov-Stories\SubstringCount\SubstringCountLibrary\obj\Debug\net6.0\SubstringCountLibrary.csproj.AssemblyReference.cache
+C:\Users\etan3\OneDrive\Documents\CSC212-Markov-Stories\SubstringCount\SubstringCountLibrary\obj\Debug\net6.0\SubstringCountLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\etan3\OneDrive\Documents\CSC212-Markov-Stories\SubstringCount\SubstringCountLibrary\obj\Debug\net6.0\SubstringCountLibrary.AssemblyInfoInputs.cache
+C:\Users\etan3\OneDrive\Documents\CSC212-Markov-Stories\SubstringCount\SubstringCountLibrary\obj\Debug\net6.0\SubstringCountLibrary.AssemblyInfo.cs
+C:\Users\etan3\OneDrive\Documents\CSC212-Markov-Stories\SubstringCount\SubstringCountLibrary\obj\Debug\net6.0\SubstringCountLibrary.csproj.CoreCompileInputs.cache
+C:\Users\etan3\OneDrive\Documents\CSC212-Markov-Stories\SubstringCount\SubstringCountLibrary\obj\Debug\net6.0\SubstringCountLibrary.dll
+C:\Users\etan3\OneDrive\Documents\CSC212-Markov-Stories\SubstringCount\SubstringCountLibrary\obj\Debug\net6.0\refint\SubstringCountLibrary.dll
+C:\Users\etan3\OneDrive\Documents\CSC212-Markov-Stories\SubstringCount\SubstringCountLibrary\obj\Debug\net6.0\SubstringCountLibrary.pdb
+C:\Users\etan3\OneDrive\Documents\CSC212-Markov-Stories\SubstringCount\SubstringCountLibrary\obj\Debug\net6.0\ref\SubstringCountLibrary.dll

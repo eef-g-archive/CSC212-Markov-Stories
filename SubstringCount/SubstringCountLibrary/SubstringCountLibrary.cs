@@ -9,12 +9,36 @@ namespace SubstringCountLibrary
         private int count;
         private Dictionary<string, int> distinctKeys = new Dictionary<string, int>();
 
+        // This public variable is just for testing -- could be useful for later though.
+        public int DictCount
+        {
+            get
+            {
+                int c = 0;
+                foreach(string k in distinctKeys.Keys)
+                {
+                    for(int i = 0; i < distinctKeys[k]; i++)
+                    {
+                        c++;
+                    }
+                }
+                return c;
+            }
+        }
+        
+        /// <summary>
+        /// Creates a MarkovEntry object with the key value given in the parameter
+        /// </summary>
         public MarkovEntry(string key)
         {
             this.key = key;
             this.count = 0;
         }
         
+        /// <summary>
+        /// Scans the entirety of the given string and checks for: how many times the MarkovEntry object key appears, what character is directly after the key
+        /// as well as how many times that specific character is directly after the key.
+        /// </summary>
         public void ScanText(string text)
         {
             char [] suffixes = GetChars(text);
@@ -82,18 +106,45 @@ namespace SubstringCountLibrary
             count++;
         }
 
-        public void PrintDistinctKeys()
+        /// <summary>
+        /// Goes through the MarkovEntry's dictionary and prints all of the UNIQUE suffixes attached to it. Does not show how many times each suffix occurs.
+        /// </summary>
+        public void PrintSuffixes()
         {
-            Console.WriteLine($"{distinctKeys.Keys.Count} unique keys");
+            Console.WriteLine($"Printing suffixes for all {distinctKeys.Count} keys");
             foreach(string k in distinctKeys.Keys)
             {
                 Console.WriteLine($"  {k} ({distinctKeys[k]})");
             }
-            Console.WriteLine("\n");
         }
+
+        /// <summary>
+        /// Creates a string that states the object is a MarkovEntry object, the key in quotes followed by how many times it appears in parenthesis and finally
+        /// a list of each suffix and how many times it appears (will show up to 9 suffixes -- Including repeats)
+        /// </summary>
         public override string ToString()
         {
-            return $"MarkovEntry '{key}': {count}";
+            string keyOut = "";
+            int o = 0;
+            foreach(string k in distinctKeys.Keys)
+            {
+                for(int i = 0; i < distinctKeys[k]; i++)
+                {
+                    keyOut += $"'{k}'";
+                    o++;
+                    if((o < 9) && (o < DictCount))
+                    {
+                        keyOut += ", ";
+                    }
+                    else if(o >= 9)
+                    {
+                        keyOut += ", ...";
+                        break;
+                    }
+                }
+            }
+
+            return $"MarkovEntry '{key}' ({count}) : {keyOut}";
         }
     }
 }
