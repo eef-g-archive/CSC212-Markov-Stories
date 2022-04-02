@@ -1,4 +1,7 @@
-﻿namespace SubstringCountLibrary
+﻿using System;
+using System.Collections.Generic;
+
+namespace SubstringCountLibrary
 {
     public class MarkovEntry
     {
