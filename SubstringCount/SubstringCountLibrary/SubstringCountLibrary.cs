@@ -142,6 +142,11 @@ namespace SubstringCountLibrary
                         break;
                     }
                 }
+                Console.WriteLine(o);
+                if(o >= 9)
+                {
+                    break;
+                }
             }
 
             return $"MarkovEntry '{key}' ({count}) : {keyOut}";

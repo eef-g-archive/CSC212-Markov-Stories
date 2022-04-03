@@ -86,7 +86,7 @@ namespace Program
             foreach(MarkovEntry entry in entries)
             {
                 // If you only want to see MarkovEntry objects that have more than a certain amount of suffixes, then change the '0' in the if-statement to the threshold you desire
-                if (entry.DictCount > 0) { Console.WriteLine(entry.ToString()); } 
+                if (entry.DictCount > 5) { Console.WriteLine(entry.ToString()); } 
             }
         }
     }
