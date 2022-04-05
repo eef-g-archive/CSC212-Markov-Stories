@@ -8,6 +8,7 @@ namespace SubstringCountLibrary
         private string key;
         private int count;
         private Dictionary<string, int> distinctKeys = new Dictionary<string, int>();
+        private Random rand;
 
         // This public variable is just for testing -- could be useful for later though.
         public int DictCount
@@ -46,6 +47,35 @@ namespace SubstringCountLibrary
             {
                 Add(c);
             }
+            rand = new Random(GenerateSeed(text));
+        }
+
+        /// <summary>
+        /// Takes the first 5 letters from the string 'text' and converts each letter to a number, adding them all up and returning that number.
+        /// Used to return the seed value for the Random object that is eventually used for the RandomLetter() function.
+        /// </summary>
+        private int GenerateSeed(string text)
+        {
+            Random r2 = new Random();
+            int addition = 0;
+            for(int i = 0; i < 10; i++)
+            {
+                addition = r2.Next();
+            }
+            int seed = 0;
+            // Get the first 5 letters
+            string s = text.Substring(0,5);
+
+            // Split the string up into an array of char values
+            char[] cs = s.ToCharArray();
+
+            // Go through that array and add the ASCII value of each char to the seed int value
+            foreach(char c in cs)
+            {
+                seed += (int)c;
+            }
+            seed += addition;
+            return seed;
         }
 
         /// <summary>
@@ -118,6 +148,26 @@ namespace SubstringCountLibrary
             }
         }
 
+
+        /// <summary>
+        /// Goes through all the unique suffixes that appear after the MarkovEntry key in the text file.
+        /// Creates an array that contains each suffix the ammount of times it appears and then randomly picks an
+        /// index of the array as the random letter to return.
+        /// </summary>
+        public char RandomLetter()
+        {
+            List<char> list = new List<char>();
+            foreach(string k in distinctKeys.Keys)
+            {
+                for(int i = 0; i < distinctKeys[k]; i++)
+                {
+                    list.Add(k.ToCharArray()[0]);
+                }
+            }
+            char[] arr = list.ToArray();
+            return arr[rand.Next(0, arr.Length)];
+        }
+
         /// <summary>
         /// Creates a string that states the object is a MarkovEntry object, the key in quotes followed by how many times it appears in parenthesis and finally
         /// a list of each suffix and how many times it appears (will show up to 9 suffixes -- Including repeats)
@@ -142,13 +192,11 @@ namespace SubstringCountLibrary
                         break;
                     }
                 }
-                Console.WriteLine(o);
                 if(o >= 9)
                 {
                     break;
                 }
             }
-
             return $"MarkovEntry '{key}' ({count}) : {keyOut}";
         }
     }

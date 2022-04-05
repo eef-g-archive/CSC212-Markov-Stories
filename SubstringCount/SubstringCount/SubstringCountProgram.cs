@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Diagnostics;
 using SubstringCountLibrary;
 
 namespace Program
@@ -27,12 +28,19 @@ namespace Program
                 Console.WriteLine("Error: invalid Markov degree 'n'. Please enter an integer");
                 return;
             }
-
+            
+            if (!int.TryParse(args[2], out int len))
+            {
+                Console.WriteLine("Error: Invalid story length 'm'. Please enter an integer");
+                return;
+            }
             // Prep variables for reading the file
             string filename = args[0];
             string text = null;
             string[] textArr;
-
+            Stopwatch watch = new Stopwatch();
+            
+            watch.Start();
             // Try to read the file
             try
             {
@@ -67,27 +75,40 @@ namespace Program
 
 
             // Create a linked list of MarkovEntry objects
-            List<MarkovEntry> entries = new List<MarkovEntry>();
+            Dictionary<string, MarkovEntry> entries = new Dictionary<string, MarkovEntry>();
 
             // Go through all the unique keys, make a MarkovEntry object using that key, add the object to the linked list (in case we need to access them later)
             // and then use the MarkovEntry object to scan the text for it's key and pick up all the data it collects.
             foreach (string key in keys)
             {
                 MarkovEntry entry = new MarkovEntry(key);
-                entries.Add(entry);
+                entries.Add(key, entry);
                 entry.ScanText(text);
             }
 
-            // ### This portion is purely used for debugging as of now -- Can be deleted later ###
-
-            // Finally, print to the screen all the MarkovEntry objects (This shows the object type, the key, how many times it appears, and the first 9 suffix characters
-            // (or if it's less than 9 all of the suffix characters)
-            Console.WriteLine($"{entries.Count} distinct keys");
-            foreach(MarkovEntry entry in entries)
+            // To print the story, need to go through all the MarkovEntries and print a letter until you've printed the amount of how long you want it to be.
+            int curr = 0;
+            int idx = 0;
+            string story = "";
+            while (curr < len)
             {
-                // If you only want to see MarkovEntry objects that have more than a certain amount of suffixes, then change the '0' in the if-statement to the threshold you desire
-                if (entry.DictCount > 5) { Console.WriteLine(entry.ToString()); } 
+                string ch = entries[keys[idx]].RandomLetter().ToString();
+                story += ch;
+                if (idx >= keys.Count - 1)
+                {
+                    idx = 0;
+                }
+                else
+                {
+                    idx++;
+                }
+                curr++;
             }
+            watch.Stop();
+
+            Console.WriteLine($"Text Length: {text.Length} characters");
+            Console.WriteLine($"Time taken: {watch.ElapsedMilliseconds} ms");
+            Console.WriteLine(story);
         }
     }
 }
