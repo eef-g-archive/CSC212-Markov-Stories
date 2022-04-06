@@ -77,8 +77,9 @@ namespace Program
             }
 
 
-            // Create a symbol table of MarkovEntry objects
-            Dictionary<string, MarkovEntry> entries = new Dictionary<string, MarkovEntry>();
+            // Create a .NET BST of MarkovEntry objects
+            // This is now a SortedDictionary instead of a Dictionary, since that's what Tallman wants in the final project
+            SortedDictionary<string, MarkovEntry> entries = new SortedDictionary<string, MarkovEntry>();
 
             // Go through all the unique keys, make a MarkovEntry object using that key, add the object to the linked list (in case we need to access them later)
             // and then use the MarkovEntry object to scan the text for it's key and pick up all the data it collects.
