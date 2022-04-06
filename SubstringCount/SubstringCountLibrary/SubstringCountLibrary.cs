@@ -7,26 +7,11 @@ namespace SubstringCountLibrary
     {
         private string key;
         private int count;
+        private int dictCount;
         private Dictionary<string, int> distinctKeys = new Dictionary<string, int>();
         private Random rand;
 
-        // This public variable is just for testing -- could be useful for later though.
-        public int DictCount
-        {
-            get
-            {
-                int c = 0;
-                foreach(string k in distinctKeys.Keys)
-                {
-                    for(int i = 0; i < distinctKeys[k]; i++)
-                    {
-                        c++;
-                    }
-                }
-                return c;
-            }
-        }
-        
+       
         /// <summary>
         /// Creates a MarkovEntry object with the key value given in the parameter
         /// </summary>
@@ -48,6 +33,24 @@ namespace SubstringCountLibrary
                 Add(c);
             }
             rand = new Random(GenerateSeed(text));
+            UpdateFullCount();
+        }
+
+        /// <summary>
+        /// Updates the value of the dictCount variable. Is used at the end of ScanText so that way the value of dictCount includes the
+        /// entirety of entries inside the dictionary of suffixes
+        /// </summary>
+        private void UpdateFullCount()
+        {
+            int c = 0;
+            foreach(string k in distinctKeys.Keys)
+            {
+                for(int i = 0; i < distinctKeys[k]; i++)
+                {
+                    c++;
+                }
+            }
+            dictCount = c;
         }
 
         /// <summary>
@@ -182,7 +185,7 @@ namespace SubstringCountLibrary
                 {
                     keyOut += $"'{k}'";
                     o++;
-                    if((o < 9) && (o < DictCount))
+                    if((o < 9) && (o < dictCount))
                     {
                         keyOut += ", ";
                     }
@@ -199,5 +202,6 @@ namespace SubstringCountLibrary
             }
             return $"MarkovEntry '{key}' ({count}) : {keyOut}";
         }
+
     }
 }

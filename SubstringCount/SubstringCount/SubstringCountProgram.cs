@@ -34,6 +34,7 @@ namespace Program
                 Console.WriteLine("Error: Invalid story length 'm'. Please enter an integer");
                 return;
             }
+
             // Prep variables for reading the file
             string filename = args[0];
             string text = null;
