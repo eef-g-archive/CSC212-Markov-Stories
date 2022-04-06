@@ -77,6 +77,7 @@ namespace Program
             }
 
 
+
             // Create a .NET BST of MarkovEntry objects
             // This is now a SortedDictionary instead of a Dictionary, since that's what Tallman wants in the final project
             SortedDictionary<string, MarkovEntry> entries = new SortedDictionary<string, MarkovEntry>();
