@@ -41,6 +41,8 @@ namespace Program
             string[] textArr;
             Stopwatch watch = new Stopwatch();
             
+
+            // Start the stopwatch to time how long the story generation takes
             watch.Start();
             // Try to read the file
             try
@@ -75,7 +77,7 @@ namespace Program
             }
 
 
-            // Create a linked list of MarkovEntry objects
+            // Create a symbol table of MarkovEntry objects
             Dictionary<string, MarkovEntry> entries = new Dictionary<string, MarkovEntry>();
 
             // Go through all the unique keys, make a MarkovEntry object using that key, add the object to the linked list (in case we need to access them later)
@@ -88,13 +90,28 @@ namespace Program
             }
 
             // To print the story, need to go through all the MarkovEntries and print a letter until you've printed the amount of how long you want it to be.
-            int curr = 0;
-            int idx = 0;
-            string story = "";
+            int curr = 0; // This int keeps track of the current character count of the generated story
+            int idx = 0; // This int keeps track of what index is being referenced in the array of MarkovEntry keys
+            string story = ""; // This string is the generated story, it gets each character added to it one at a time
+
+            // Enter the story-generating loop here
             while (curr < len)
             {
+                // string ch is found by:
+                // 1) Getting a string from the array of keys from earlier in the code via the idx int
+                // 2) Using keys[idx], which retruns a string such as "veni," and looks in the symbol table of entries using that key
+                // 3) Assumes that if a key is found, a MarkovEntry object is attached to it
+                // 4) Calls the RandomLetter() function of that MarkovEntry object
+                // 5) Converts the char variable that is returned from the RandomLetter() function to a string
                 string ch = entries[keys[idx]].RandomLetter().ToString();
+                
+                // Add the randomly picked character, ch, to the string of the random story.
                 story += ch;
+                
+                // Check to see if you can increment the current index that you are referencing from the keys array
+                // * If the current value of index is the same as the count or greater, reset it
+                //    * This is done in case the length of the story is longer than the actual amount of keys created
+                // * If the index is less than the limit to reset it, simply increase it by one
                 if (idx >= keys.Count - 1)
                 {
                     idx = 0;
@@ -103,10 +120,13 @@ namespace Program
                 {
                     idx++;
                 }
+
+                // Increase curr by one so that way the while-loop exit condition can actually be met
                 curr++;
             }
             watch.Stop();
-
+            
+            // Print out the length of the text, the overall time it took, and the generated story
             Console.WriteLine($"Text Length: {text.Length} characters");
             Console.WriteLine($"Time taken: {watch.ElapsedMilliseconds} ms");
             Console.WriteLine(story);
