@@ -93,9 +93,8 @@ namespace Program
 
             // To print the story, need to go through all the MarkovEntries and print a letter until you've printed the amount of how long you want it to be.
             int curr = 0; // This int keeps track of the current character count of the generated story
-            int idx = 0; // This int keeps track of what index is being referenced in the array of MarkovEntry keys
-            string story = ""; // This string is the generated story, it gets each character added to it one at a time
-
+            string story = text.Substring(0, k + 1); // This string is the generated story, it gets each character added to it one at a time
+            Console.WriteLine(story);
             // Enter the story-generating loop here
             while (curr < len)
             {
@@ -105,26 +104,13 @@ namespace Program
                 // 3) Assumes that if a key is found, a MarkovEntry object is attached to it
                 // 4) Calls the RandomLetter() function of that MarkovEntry object
                 // 5) Converts the char variable that is returned from the RandomLetter() function to a string
-                string ch = entries[keys[idx]].RandomLetter().ToString();
+                string ch = entries[story.Substring(story.Length - k, k)].RandomLetter().ToString();
                 
                 // Add the randomly picked character, ch, to the string of the random story.
                 story += ch;
                 
-                // Check to see if you can increment the current index that you are referencing from the keys array
-                // * If the current value of index is the same as the count or greater, reset it
-                //    * This is done in case the length of the story is longer than the actual amount of keys created
-                // * If the index is less than the limit to reset it, simply increase it by one
-                if (idx >= keys.Count - 1)
-                {
-                    idx = 0;
-                }
-                else
-                {
-                    idx++;
-                }
-
-                // Increase curr by one so that way the while-loop exit condition can actually be met
-                curr++;
+                // Change curr to be the length of the story.
+                curr = story.Length;
             }
             watch.Stop();
             
