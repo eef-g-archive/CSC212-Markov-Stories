@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OEP7GcWUdRTf5tkqIqKnusYfQvXqfJVgqIyWRpERjuA2ruEPkxoj4U2LpoVbMuNIDAup7zF6Ae8DFi2MRz6xEw==",
+  "dgSpecHash": "S2HhYN3ZlgVf6kxmOdIAfatrbfzwm2VFVumg/uYQpp4jbIBzusV4O4MLmcvTJiRSqR2n69hpHQkfaLrqEBY80Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ethan\\Documents\\GitHub\\CSC212-Markov-Stories\\SubstringCount\\SubstringCountLibrary\\SubstringCountLibrary.csproj",
+  "projectFilePath": "/Users/maggiebrascia/Desktop/CSC212-Markov-Stories/SubstringCount/SubstringCountLibrary/SubstringCountLibrary.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

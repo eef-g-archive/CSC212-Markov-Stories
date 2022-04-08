@@ -11,4 +11,16 @@
     <ProjectReference Include="..\SubstringCountLibrary\SubstringCountLibrary.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="TreeSymbolTable" />
+    <None Remove="ListSymbolTable" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="TreeSymbolTable">
+      <HintPath>..\..\..\csc212\ADTs\TreeSymbolTable.dll</HintPath>
+    </Reference>
+    <Reference Include="ListSymbolTable">
+      <HintPath>..\..\..\csc212\ADTs\ListSymbolTable.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

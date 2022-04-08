@@ -1,14 +1,18 @@
 ﻿<Properties StartupConfiguration="{43460B48-62EC-4342-A392-8DA03BB5430E}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="SubstringCountLibrary/SubstringCountLibrary.cs">
     <Files>
-      <File FileName="SubstringCount/SubstringCountProgram.cs" Line="31" Column="32" />
-      <File FileName="SubstringCountLibrary/SubstringCountLibrary.cs" Line="2" Column="34" />
+      <File FileName="SubstringCount/SubstringCountProgram.cs" Line="192" Column="2" />
+      <File FileName="SubstringCountLibrary/SubstringCountLibrary.cs" Line="207" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="SubstringCount" expanded="True">
-            <Node name="SubstringCount" expanded="True" />
+            <Node name="SubstringCount" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="AssemblyDependencies" expanded="True" />
+              </Node>
+            </Node>
             <Node name="SubstringCountLibrary" expanded="True">
               <Node name="SubstringCountLibrary.cs" selected="True" />
             </Node>
@@ -17,9 +21,14 @@
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
         <State>
-          <Value>filename</Value>
-          <Value>args[0]</Value>
-          <Value>args[1]</Value>
+          <Value>M</Value>
+          <Value>N</Value>
+          <Value>text[i+j]</Value>
+          <Value>key[j]</Value>
+          <Value>chList</Value>
+          <Value>k</Value>
+          <Value>entries</Value>
+          <Value>keys</Value>
         </State>
       </Pad>
     </Pads>

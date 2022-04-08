@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Diagnostics;
 using SubstringCountLibrary;
+using ListSymbolTable;
+using TreeSymbolTable;
 
 namespace Program
 {
@@ -28,7 +30,7 @@ namespace Program
                 Console.WriteLine("Error: invalid Markov degree 'n'. Please enter an integer");
                 return;
             }
-            
+
             if (!int.TryParse(args[2], out int len))
             {
                 Console.WriteLine("Error: Invalid story length 'm'. Please enter an integer");
@@ -40,17 +42,16 @@ namespace Program
             string text = null;
             string[] textArr;
             Stopwatch watch = new Stopwatch();
-            
 
-            // Start the stopwatch to time how long the story generation takes
-            watch.Start();
+
+
             // Try to read the file
             try
             {
                 textArr = File.ReadAllLines(filename);
 
                 // Take each line and combine them into one long string, that way the MarkovEntry objects don't accidentally pick up the new line characters as well
-                foreach(string line in textArr)
+                foreach (string line in textArr)
                 {
                     text += line + " ";
                 }
@@ -70,14 +71,14 @@ namespace Program
             for (int i = 0; i < text.Length - k; i++)
             {
                 string newKey = text.Substring(i, k);
-                if(!keys.Contains(newKey))
+                if (!keys.Contains(newKey))
                 {
                     keys.Add(newKey);
                 }
             }
 
-
-
+            // Start the stopwatch to time how long the story generation takes
+            watch.Start();
             // Create a .NET BST of MarkovEntry objects
             // This is now a SortedDictionary instead of a Dictionary, since that's what Tallman wants in the final project
             SortedDictionary<string, MarkovEntry> entries = new SortedDictionary<string, MarkovEntry>();
@@ -93,8 +94,7 @@ namespace Program
 
             // To print the story, need to go through all the MarkovEntries and print a letter until you've printed the amount of how long you want it to be.
             int curr = 0; // This int keeps track of the current character count of the generated story
-            int idx = 0; // This int keeps track of what index is being referenced in the array of MarkovEntry keys
-            string story = ""; // This string is the generated story, it gets each character added to it one at a time
+            string story = text.Substring(0, k + 1); // This string is the generated story, it gets each character added to it one at a time
 
             // Enter the story-generating loop here
             while (curr < len)
@@ -105,33 +105,88 @@ namespace Program
                 // 3) Assumes that if a key is found, a MarkovEntry object is attached to it
                 // 4) Calls the RandomLetter() function of that MarkovEntry object
                 // 5) Converts the char variable that is returned from the RandomLetter() function to a string
-                string ch = entries[keys[idx]].RandomLetter().ToString();
-                
+                string ch = entries[story.Substring(story.Length - k, k)].RandomLetter().ToString();
+
                 // Add the randomly picked character, ch, to the string of the random story.
                 story += ch;
-                
+
                 // Check to see if you can increment the current index that you are referencing from the keys array
                 // * If the current value of index is the same as the count or greater, reset it
                 //    * This is done in case the length of the story is longer than the actual amount of keys created
-                // * If the index is less than the limit to reset it, simply increase it by one
-                if (idx >= keys.Count - 1)
-                {
-                    idx = 0;
-                }
-                else
-                {
-                    idx++;
-                }
+
 
                 // Increase curr by one so that way the while-loop exit condition can actually be met
                 curr++;
             }
             watch.Stop();
-            
+
             // Print out the length of the text, the overall time it took, and the generated story
+            Console.WriteLine("----------------------------------");
+            Console.WriteLine("DOT NET DICTIONARY");
             Console.WriteLine($"Text Length: {text.Length} characters");
             Console.WriteLine($"Time taken: {watch.ElapsedMilliseconds} ms");
             Console.WriteLine(story);
+
+
+            //LIST SYMBOL TABLE
+            watch.Start();
+
+            ListSymbolTable<string, MarkovEntry> lstEntries = new ListSymbolTable<string, MarkovEntry>();
+
+            foreach (string key in keys)
+            {
+                MarkovEntry entry = new MarkovEntry(key);
+                lstEntries.Add(key, entry);
+                entry.ScanText(text);
+            }
+
+            curr = 0;
+            story = text.Substring(0, k + 1);
+
+            while (curr < len)
+            {
+                string ch = lstEntries[story.Substring(story.Length - k, k)].RandomLetter().ToString();
+                story += ch;
+                curr++;
+            }
+            watch.Stop();
+
+            Console.WriteLine("----------------------------------");
+            Console.WriteLine("LIST SYMBOL TABLE");
+            Console.WriteLine($"Text Length: {text.Length} characters");
+            Console.WriteLine($"Time taken: {watch.ElapsedMilliseconds} ms");
+            Console.WriteLine(story);
+
+
+            watch.Start();
+
+            MyTreeTable<string, MarkovEntry> bstEntries = new MyTreeTable<string, MarkovEntry>();
+
+            foreach (string key in keys)
+            {
+                MarkovEntry entry = new MarkovEntry(key);
+                bstEntries.Add(key, entry);
+                entry.ScanText(text);
+            }
+
+            curr = 0;
+            story = text.Substring(0, k + 1);
+
+            while (curr < len)
+            {
+                string ch = bstEntries[story.Substring(story.Length - k, k)].RandomLetter().ToString();
+                story += ch;
+                curr++;
+            }
+            watch.Stop();
+
+            Console.WriteLine("----------------------------------");
+            Console.WriteLine("BINARY SEARCH TREE");
+            Console.WriteLine($"Text Length: {text.Length} characters");
+            Console.WriteLine($"Time taken: {watch.ElapsedMilliseconds} ms");
+            Console.WriteLine(story);
+
+
         }
     }
 }
