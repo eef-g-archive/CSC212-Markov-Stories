@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SubstringCount": {
+      "commandName": "Project",
+      "commandLineArgs": ".\\drseuss.txt 5 300"
+    }
+  }
+}
