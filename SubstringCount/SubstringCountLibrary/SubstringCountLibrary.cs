@@ -107,13 +107,15 @@ namespace SubstringCountLibrary
                     char ch;
                     if (i + key.Length >= text.Length)
                     {
-                        ch = '_';
+                        // Don't add anything since the text ends where the key is, but still increase count.
+                        count++;
                     }
                     else
                     {
                         ch = text[i + key.Length];
+                        chList.Add(ch);
+
                     }
-                    chList.Add(ch);
                 }
 
             }

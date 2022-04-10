@@ -8,24 +8,26 @@
     "net6.0": []
   },
   "packageFolders": {
-    "/Users/maggiebrascia/.nuget/packages/": {}
+    "C:\\Users\\etan3\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/maggiebrascia/Desktop/CSC212-Markov-Stories/SubstringCount/SubstringCountLibrary/SubstringCountLibrary.csproj",
+      "projectUniqueName": "C:\\Users\\etan3\\OneDrive\\Documents\\CSC212-Markov-Stories\\SubstringCount\\SubstringCountLibrary\\SubstringCountLibrary.csproj",
       "projectName": "SubstringCountLibrary",
-      "projectPath": "/Users/maggiebrascia/Desktop/CSC212-Markov-Stories/SubstringCount/SubstringCountLibrary/SubstringCountLibrary.csproj",
-      "packagesPath": "/Users/maggiebrascia/.nuget/packages/",
-      "outputPath": "/Users/maggiebrascia/Desktop/CSC212-Markov-Stories/SubstringCount/SubstringCountLibrary/obj/",
+      "projectPath": "C:\\Users\\etan3\\OneDrive\\Documents\\CSC212-Markov-Stories\\SubstringCount\\SubstringCountLibrary\\SubstringCountLibrary.csproj",
+      "packagesPath": "C:\\Users\\etan3\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\etan3\\OneDrive\\Documents\\CSC212-Markov-Stories\\SubstringCount\\SubstringCountLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/maggiebrascia/.config/NuGet/NuGet.Config"
+        "C:\\Users\\etan3\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -58,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.103/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
