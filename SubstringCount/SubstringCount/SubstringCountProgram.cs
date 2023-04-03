@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Diagnostics;
 using SubstringCountLibrary;
-using ListSymbolTable;
-using TreeSymbolTable;
 
 namespace Program
 {
@@ -37,13 +35,12 @@ namespace Program
                 return;
             }
 
+
             // Prep variables for reading the file
             string filename = args[0];
-            string text = null;
+            string text = "";
             string[] textArr;
             Stopwatch watch = new Stopwatch();
-
-
 
             // Try to read the file
             try
@@ -56,6 +53,8 @@ namespace Program
                     text += line + " ";
                 }
             }
+
+
             // If there isn't a file by the name provided in the command line, print the exception and tell the user about the error. 
             catch (FileNotFoundException e)
             {
@@ -160,7 +159,7 @@ namespace Program
 
             watch.Start();
 
-            MyTreeTable<string, MarkovEntry> bstEntries = new MyTreeTable<string, MarkovEntry>();
+            BinarySearchTree<string, MarkovEntry> bstEntries = new BinarySearchTree<string, MarkovEntry>();
 
             foreach (string key in keys)
             {
@@ -184,9 +183,8 @@ namespace Program
             Console.WriteLine("BINARY SEARCH TREE");
             Console.WriteLine($"Text Length: {text.Length} characters");
             Console.WriteLine($"Time taken: {watch.ElapsedMilliseconds} ms");
-            Console.WriteLine(story);
-
-
+            Console.Write($"{story}\n\nPress any key to close terminal: ");
+            Console.ReadKey();
         }
     }
 }

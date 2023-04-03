@@ -1,0 +1,15 @@
+C:\Users\Ethan\Documents\GitHub\CSC212-Markov-Stories\Markov-Stories\Markov-Stories\bin\Debug\net6.0\Markov-Stories.exe
+C:\Users\Ethan\Documents\GitHub\CSC212-Markov-Stories\Markov-Stories\Markov-Stories\bin\Debug\net6.0\Markov-Stories.deps.json
+C:\Users\Ethan\Documents\GitHub\CSC212-Markov-Stories\Markov-Stories\Markov-Stories\bin\Debug\net6.0\Markov-Stories.runtimeconfig.json
+C:\Users\Ethan\Documents\GitHub\CSC212-Markov-Stories\Markov-Stories\Markov-Stories\bin\Debug\net6.0\Markov-Stories.dll
+C:\Users\Ethan\Documents\GitHub\CSC212-Markov-Stories\Markov-Stories\Markov-Stories\bin\Debug\net6.0\Markov-Stories.pdb
+C:\Users\Ethan\Documents\GitHub\CSC212-Markov-Stories\Markov-Stories\Markov-Stories\obj\Debug\net6.0\Markov-Stories.csproj.AssemblyReference.cache
+C:\Users\Ethan\Documents\GitHub\CSC212-Markov-Stories\Markov-Stories\Markov-Stories\obj\Debug\net6.0\Markov-Stories.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ethan\Documents\GitHub\CSC212-Markov-Stories\Markov-Stories\Markov-Stories\obj\Debug\net6.0\Markov-Stories.AssemblyInfoInputs.cache
+C:\Users\Ethan\Documents\GitHub\CSC212-Markov-Stories\Markov-Stories\Markov-Stories\obj\Debug\net6.0\Markov-Stories.AssemblyInfo.cs
+C:\Users\Ethan\Documents\GitHub\CSC212-Markov-Stories\Markov-Stories\Markov-Stories\obj\Debug\net6.0\Markov-Stories.csproj.CoreCompileInputs.cache
+C:\Users\Ethan\Documents\GitHub\CSC212-Markov-Stories\Markov-Stories\Markov-Stories\obj\Debug\net6.0\Markov-Stories.dll
+C:\Users\Ethan\Documents\GitHub\CSC212-Markov-Stories\Markov-Stories\Markov-Stories\obj\Debug\net6.0\refint\Markov-Stories.dll
+C:\Users\Ethan\Documents\GitHub\CSC212-Markov-Stories\Markov-Stories\Markov-Stories\obj\Debug\net6.0\Markov-Stories.pdb
+C:\Users\Ethan\Documents\GitHub\CSC212-Markov-Stories\Markov-Stories\Markov-Stories\obj\Debug\net6.0\Markov-Stories.genruntimeconfig.cache
+C:\Users\Ethan\Documents\GitHub\CSC212-Markov-Stories\Markov-Stories\Markov-Stories\obj\Debug\net6.0\ref\Markov-Stories.dll
